@@ -2,3 +2,21 @@ DROP DATABASE IF EXISTS blog_db;
 CREATE DATABASE blog_db;
 
 USE blog_db;
+
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE posts (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    body TEXT NOT NULL,
+    date_created DATETIME NOT NULL,
+    user_id INT,
+    FOREIGN KEY(user_id)
+    REFERENCES users(id)
+    ON DELETE SET NULL
+
+);
