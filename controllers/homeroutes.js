@@ -35,10 +35,10 @@ router.get('/post/:id', async (req, res) => {
                 },
             ],
         });
-        console.log(postData);
+        // console.log(postData);
 
         const post = postData.get({ plain: true });
-        console.log(post);
+        // console.log(post);
 
         res.render('post', {
             ...post,
